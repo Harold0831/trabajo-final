@@ -3,11 +3,18 @@ import { recipes as defaultRecipes } from "./data.js";
 const STORAGE_KEY = "recipes_v1";
 
 // Cargar recetas de localStorage o usar las predeterminadas
-let recipes = JSON.parse(localStorage.getItem(STORAGE_KEY)) || defaultRecipes;
+let recipes;
+try {
+    recipes = JSON.parse(localStorage.getItem(STORAGE_KEY));
+} catch (e) {
+    console.error("Error parsing recipes from localStorage", e);
+    recipes = null;
+}
 
-// Guardar las recetas iniciales si no existen en localStorage
-if (!localStorage.getItem(STORAGE_KEY)) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultRecipes));
+if (!recipes || !Array.isArray(recipes) || recipes.length === 0) {
+    console.warn("Recetas no válidas o vacías, restaurando defaults.");
+    recipes = defaultRecipes;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(recipes));
 }
 
 const page = document.body.dataset.page;
@@ -109,7 +116,22 @@ function initDetail() {
     if (!recipe) {
         if (title) title.textContent = "Receta no encontrada";
         if (description) {
-            description.innerHTML = `No pudimos encontrar la receta con ID: <strong>${id}</strong>.<br>Vuelve al recetario para explorar otra opción.`;
+            const availableIds = recipes.map(r => r.id).join(", ");
+            description.innerHTML = `
+                <div style="padding: 1rem; background: #fee2e2; border-radius: 8px; color: #991b1b; font-family: monospace; font-size: 0.9em;">
+                    <p><strong>Error de Navegación</strong></p>
+                    <p>Buscando ID: <strong>"${id}"</strong> (Tipo: ${typeof id})</p>
+                    <p>Query String: "${window.location.search}"</p>
+                    <p>Total recetas cargadas: ${recipes.length}</p>
+                    <details>
+                        <summary>Ver IDs disponibles</summary>
+                        <p>${availableIds}</p>
+                    </details>
+                    <p>URL: ${window.location.href}</p>
+                </div>
+                <br>
+                <a href="/index.html" class="button">Volver al inicio</a>
+            `;
         }
         return;
     }
@@ -191,7 +213,8 @@ function renderRatingAndMeta(recipe, container) {
     
     const updateStars = () => {
         starsContainer.innerHTML = "";
-        for (let i = 1; i <= 5; i++) {
+        // Generate stars in reverse order (5 to 1) for CSS row-reverse
+        for (let i = 5; i >= 1; i--) {
             const star = document.createElement("span");
             star.className = `star ${i <= (recipe.rating || 0) ? "filled" : ""}`;
             star.textContent = "★";
@@ -242,8 +265,15 @@ function createStars(rating) {
 function createCard(recipe) {
     const card = document.createElement("a");
     card.className = "recipe-card";
-    // Use absolute path to avoid relative path issues
-    card.href = `/recipe.html?id=${encodeURIComponent(recipe.id)}`;
+    
+    // Detectar entorno para ajustar la URL
+    // 'serve' redirige .html a sin extensión y puede perder parámetros.
+    // file:// necesita .html explícito.
+    const isHttp = window.location.protocol.startsWith('http');
+    const path = isHttp ? '/recipe' : 'recipe.html';
+    
+    card.href = `${path}?id=${encodeURIComponent(recipe.id)}`;
+    
     card.style.setProperty("--card-soft", recipe.accentSoft);
     card.style.setProperty("--card-color", recipe.accent);
     card.setAttribute("aria-label", recipe.title);

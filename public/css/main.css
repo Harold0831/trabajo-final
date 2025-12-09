@@ -534,6 +534,7 @@ textarea {
 /* Star Rating */
 .star-rating {
     display: inline-flex;
+    flex-direction: row-reverse; /* Reverse order for hover effect */
     gap: 4px;
     align-items: center;
 }
