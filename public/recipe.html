@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receta | Sazón Pastel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<body data-page="detail">
+    <header class="topbar">
+        <div class="brand">
+            <span class="logo-dot" aria-hidden="true"></span>
+            <a class="brand-name" href="./index.html">Sazón Pastel</a>
+        </div>
+        <nav class="nav-actions" aria-label="Navegación secundaria">
+            <a class="ghost" href="./add-recipe.html">Agregar receta</a>
+            <a class="ghost" href="./index.html">Inicio</a>
+            <a class="primary" href="./index.html#buscar">Buscar</a>
+        </nav>
+    </header>
+
+    <main class="detail-layout">
+        <section class="detail-hero">
+            <div class="detail-content">
+                <p class="eyebrow">Receta</p>
+                <h1 id="recipe-title">Cargando receta…</h1>
+                <p id="recipe-description" class="lede"></p>
+                <div class="meta-bar" id="recipe-meta"></div>
+                <div class="chips" id="recipe-tags"></div>
+            </div>
+            <div class="detail-image-wrapper">
+                <img id="recipe-image" src="" alt="" />
+            </div>
+        </section>
+
+        <section class="detail-panels">
+            <article class="panel">
+                <h2>Ingredientes</h2>
+                <ul id="recipe-ingredients" class="styled-list"></ul>
+            </article>
+            <article class="panel">
+                <h2>Pasos</h2>
+                <ol id="recipe-steps" class="styled-list ordered"></ol>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div>
+            <span class="logo-dot" aria-hidden="true"></span>
+            <span class="brand-name">Sazón Pastel</span>
+        </div>
+        <p><a class="ghost" href="./index.html">Volver al recetario</a></p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agregar Receta | Sazón Pastel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<body data-page="add-recipe">
+    <header class="topbar">
+        <div class="brand">
+            <span class="logo-dot" aria-hidden="true"></span>
+            <a class="brand-name" href="./index.html">Sazón Pastel</a>
+        </div>
+        <nav class="nav-actions" aria-label="Navegación secundaria">
+            <a class="ghost" href="./index.html">Cancelar</a>
+            <button class="primary" form="add-recipe-form" type="submit">Guardar</button>
+        </nav>
+    </header>
+
+    <main class="detail-layout">
+        <section class="detail-hero" style="grid-template-columns: 1fr;">
+            <div class="detail-content">
+                <p class="eyebrow">Nueva Receta</p>
+                <h1>Comparte tu sazón</h1>
+                <p class="lede">Añade los detalles de tu creación para que otros puedan disfrutarla.</p>
+            </div>
+        </section>
+
+        <form id="add-recipe-form" class="add-recipe-form">
+            <div class="form-group">
+                <label for="title">Título de la receta</label>
+                <input type="text" id="title" name="title" required placeholder="Ej. Tarta de manzana" />
+            </div>
+
+            <div class="form-group">
+                <label for="description">Descripción corta</label>
+                <textarea id="description" name="description" required placeholder="Una breve descripción que despierte el apetito..."></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="time">Tiempo</label>
+                    <input type="text" id="time" name="time" placeholder="Ej. 45 min" required />
+                </div>
+                <div class="form-group">
+                    <label for="difficulty">Dificultad</label>
+                    <select id="difficulty" name="difficulty">
+                        <option value="Fácil">Fácil</option>
+                        <option value="Media">Media</option>
+                        <option value="Difícil">Difícil</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="servings">Porciones</label>
+                    <input type="number" id="servings" name="servings" placeholder="2" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="image">URL de la imagen</label>
+                <input type="url" id="image" name="image" placeholder="https://..." required />
+                <p class="hint">Usa una URL de Unsplash o similar.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="tags">Etiquetas (separadas por coma)</label>
+                <input type="text" id="tags" name="tags" placeholder="postre, rápido, chocolate" />
+            </div>
+
+            <div class="form-group">
+                <label for="ingredients">Ingredientes (uno por línea)</label>
+                <textarea id="ingredients" name="ingredients" rows="5" required placeholder="2 manzanas&#10;1 taza de harina..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="steps">Pasos (uno por línea)</label>
+                <textarea id="steps" name="steps" rows="5" required placeholder="Pelar las manzanas...&#10;Mezclar con harina..."></textarea>
+            </div>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <div>
+            <span class="logo-dot" aria-hidden="true"></span>
+            <span class="brand-name">Sazón Pastel</span>
+        </div>
+        <p>Cocina ligera, pasos claros y colores que relajan.</p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

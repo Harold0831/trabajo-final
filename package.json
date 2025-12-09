@@ -1,0 +1,11 @@
+{
+  "name": "trabajo-final",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "serve -l 5173 public"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}

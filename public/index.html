@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Recetario Minimal</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<body data-page="home">
+	<header class="topbar">
+		<div class="brand">
+			<span class="logo-dot" aria-hidden="true"></span>
+			<span class="brand-name">Sazón Pastel</span>
+		</div>
+		<nav class="nav-actions" aria-label="Acciones principales">
+			<a class="ghost" href="./add-recipe.html">Agregar receta</a>
+			<a class="ghost" href="#recetas">Recetas</a>
+			<a class="primary" href="#buscar">Buscar</a>
+		</nav>
+	</header>
+
+    <main>
+        <section class="hero" id="buscar">
+            <div class="hero-content">
+                <p class="eyebrow">Recetario minimal</p>
+                <h1>Sabores suaves, pasos claros.</h1>
+                <p class="lede">Explora recetas con ingredientes sencillos, instrucciones limpias y un look pastel para cocinar sin ruido visual.</p>
+                <div class="search-box" role="search">
+                    <input id="search-input" type="search" placeholder="Buscar por nombre, ingrediente o etiqueta" aria-label="Buscar recetas" />
+                    <span class="kbd">⌘ /</span>
+                </div>
+                <div class="chips" aria-label="Etiquetas populares">
+                    <button class="chip" data-chip="veg">Veggie</button>
+                    <button class="chip" data-chip="rápido">Rápido</button>
+                    <button class="chip" data-chip="brunch">Brunch</button>
+                    <button class="chip" data-chip="postre">Postre</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=800&q=80" alt="Mesa de cocina con ingredientes frescos" />
+            </div>
+        </section>
+
+        <section class="section-heading" id="recetas">
+			<div>
+				<p class="eyebrow">Destacadas</p>
+				<h2>Recetas listas para hoy</h2>
+			</div>
+			<div class="hint">Filtra o toca una tarjeta para ver el detalle.</div>
+		</section>
+
+		<section class="grid" aria-live="polite" aria-busy="false">
+			<div id="recipe-grid" class="recipe-grid"></div>
+			<p id="empty-state" class="empty-state" hidden>No encontramos recetas con ese término.</p>
+		</section>
+	</main>
+
+    <footer class="footer">
+        <div>
+            <span class="logo-dot" aria-hidden="true"></span>
+            <span class="brand-name">Sazón Pastel</span>
+        </div>
+        <p>Cocina ligera, pasos claros y colores que relajan.</p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
