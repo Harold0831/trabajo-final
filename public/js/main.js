@@ -1,6 +1,6 @@
 import { recipes as defaultRecipes } from "./data.js";
 
-const STORAGE_KEY = "recipes_v1";
+const STORAGE_KEY = "recipes_v2";
 
 // Cargar recetas de localStorage o usar las predeterminadas
 let recipes;

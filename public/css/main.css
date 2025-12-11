@@ -366,11 +366,76 @@ h1 {
 .footer {
     width: min(1280px, 100% - 64px);
     margin: 40px auto 64px;
+    border-top: 1px solid var(--border);
+    padding-top: 40px;
+    color: var(--muted);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.footer-brand {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    color: var(--muted);
+    gap: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--text);
+}
+
+.footer-credits {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 14px;
+}
+
+.developers {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.developers p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.developers ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.developers a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.developers a:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .footer-credits {
+        align-items: flex-end;
+        text-align: right;
+    }
 }
 
 .detail-layout {
