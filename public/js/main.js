@@ -57,7 +57,7 @@ function initAddRecipe() {
 
         recipes.push(newRecipe);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(recipes));
-        window.location.href = "/index.html";
+        window.location.href = "./index.html";
     });
 }
 
@@ -266,13 +266,10 @@ function createCard(recipe) {
     const card = document.createElement("a");
     card.className = "recipe-card";
     
-    // Detectar entorno para ajustar la URL
-    // 'serve' redirige .html a sin extensión y puede perder parámetros.
-    // file:// necesita .html explícito.
-    const isHttp = window.location.protocol.startsWith('http');
-    const path = isHttp ? '/recipe' : 'recipe.html';
-    
-    card.href = `${path}?id=${encodeURIComponent(recipe.id)}`;
+    // Usar ruta relativa para mayor compatibilidad en subcarpetas y Vercel
+    // Vercel redirigirá recipe.html -> recipe si tiene Clean URLs activo,
+    // pero debería mantener los parámetros.
+    card.href = `recipe.html?id=${encodeURIComponent(recipe.id)}`;
     
     card.style.setProperty("--card-soft", recipe.accentSoft);
     card.style.setProperty("--card-color", recipe.accent);
