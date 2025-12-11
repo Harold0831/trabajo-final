@@ -23,25 +23,42 @@
 	</header>
 
     <main>
-        <section class="hero" id="buscar">
+        <section class="hero">
             <div class="hero-content">
                 <p class="eyebrow">Recetario minimal</p>
                 <h1>Sabores suaves, pasos claros.</h1>
                 <p class="lede">Explora recetas con ingredientes sencillos, instrucciones limpias y un look pastel para cocinar sin ruido visual.</p>
-                <div class="search-box" role="search">
-                    <input id="search-input" type="search" placeholder="Buscar por nombre, ingrediente o etiqueta" aria-label="Buscar recetas" />
-                    <span class="kbd">⌘ /</span>
-                </div>
-                <div class="chips" aria-label="Etiquetas populares">
-                    <button class="chip" data-chip="veg">Veggie</button>
-                    <button class="chip" data-chip="rápido">Rápido</button>
-                    <button class="chip" data-chip="brunch">Brunch</button>
-                    <button class="chip" data-chip="postre">Postre</button>
-                </div>
             </div>
             <div class="hero-image">
                 <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=800&q=80" alt="Mesa de cocina con ingredientes frescos" />
             </div>
+        </section>
+
+        <section class="cta-banner">
+            <div class="carousel-background">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1600&q=80" alt="Pizza deliciosa" />
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1600&q=80" alt="Postre de frutas" />
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=1600&q=80" alt="Sandwich gourmet" />
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=1600&q=80" alt="Tostada francesa" />
+                    </div>
+                </div>
+                <div class="carousel-overlay"></div>
+            </div>
+            
+            <div class="cta-content">
+                <h2>Hazte un chef con recetas de todo el <span class="highlight-beige">Mundo</span></h2>
+                <p>Explora sabores internacionales y domina el arte de la cocina con nuestras guías paso a paso.</p>
+            </div>
+
+            
         </section>
 
         <section class="section-heading" id="recetas">
@@ -51,7 +68,18 @@
 			</div>
 			<div class="hint">Filtra o toca una tarjeta para ver el detalle.</div>
 		</section>
-
+        <div class="search-container" id="buscar">
+            <div class="search-box" role="search">
+                <input id="search-input" type="search" placeholder="Buscar por nombre, ingrediente o etiqueta" aria-label="Buscar recetas" />
+                <span class="kbd">⌘ /</span>
+            </div>
+            <div class="chips" aria-label="Etiquetas populares">
+                <button class="chip" data-chip="veg">Veggie</button>
+                <button class="chip" data-chip="rápido">Rápido</button>
+                <button class="chip" data-chip="brunch">Brunch</button>
+                <button class="chip" data-chip="postre">Postre</button>
+            </div>
+        </div>
 		<section class="grid" aria-live="polite" aria-busy="false">
 			<div id="recipe-grid" class="recipe-grid"></div>
 			<p id="empty-state" class="empty-state" hidden>No encontramos recetas con ese término.</p>

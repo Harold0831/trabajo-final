@@ -1,0 +1,27 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "append_css",
+			"type": "shell",
+			"command": "echo",
+			"args": [
+				"echo",
+				"\"\n.search-container {\n    margin-bottom: 48px;\n}\n\"",
+				">>",
+				"public/css/main.css"
+			]
+		},
+		{
+			"label": "append_cta_css",
+			"type": "shell",
+			"command": "echo",
+			"args": [
+				"echo",
+				"\"\n.cta-banner {\n    text-align: center;\n    padding: 64px 24px;\n    margin: 48px 0;\n    background: var(--info-soft);\n    border-radius: var(--radius);\n    color: var(--text);\n}\n\n.cta-banner h2 {\n    font-size: 32px;\n    margin-bottom: 16px;\n    color: var(--text);\n}\n\n.cta-banner p {\n    font-size: 18px;\n    color: var(--muted);\n    max-width: 600px;\n    margin: 0 auto;\n}\n\"",
+				">>",
+				"public/css/main.css"
+			]
+		}
+	]
+}

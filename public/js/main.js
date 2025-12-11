@@ -67,6 +67,8 @@ function initHome() {
 	const searchInput = document.getElementById("search-input");
 	const chips = document.querySelectorAll(".chip");
 
+    initCarousel();
+
 	renderCards(recipes, grid, emptyState);
 
 	function handleFilter(term) {
@@ -195,7 +197,6 @@ function renderCards(list, grid, emptyState) {
 function renderRatingAndMeta(recipe, container) {
     container.innerHTML = "";
     
-    // Rating Section
     const ratingSection = document.createElement("div");
     ratingSection.className = "rating-section";
     ratingSection.style.marginBottom = "12px";
@@ -213,7 +214,6 @@ function renderRatingAndMeta(recipe, container) {
     
     const updateStars = () => {
         starsContainer.innerHTML = "";
-        // Generate stars in reverse order (5 to 1) for CSS row-reverse
         for (let i = 5; i >= 1; i--) {
             const star = document.createElement("span");
             star.className = `star ${i <= (recipe.rating || 0) ? "filled" : ""}`;
@@ -233,7 +233,6 @@ function renderRatingAndMeta(recipe, container) {
     ratingSection.appendChild(starsContainer);
     container.appendChild(ratingSection);
 
-    // Pills Section
     const pillsContainer = document.createElement("div");
     pillsContainer.className = "meta-pills";
     pillsContainer.style.display = "flex";
@@ -337,4 +336,26 @@ function matchesQuery(recipe, query) {
 		.join(" ")
 		.toLowerCase()
 		.includes(query);
+}
+
+function initCarousel() {
+    const track = document.querySelector('.carousel-track');
+    if (!track) return;
+    
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.carousel-btn.next');
+    const prevButton = document.querySelector('.carousel-btn.prev');
+    
+    if (slides.length === 0) return;
+
+    let currentIndex = 0;
+
+    const updateSlidePosition = () => {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    };
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlidePosition();
+    }, 5000);
 }
